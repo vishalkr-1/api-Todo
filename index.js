@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import router from './routes/tasks.router.js';
 import connectDb from './config/db.js';
 import dns from "dns";
+import cors from "cors";
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 dotenv.config();
 const app = express()
