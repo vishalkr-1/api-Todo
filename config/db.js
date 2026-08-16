@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
         console.log('db connected')
     } catch (err) {
         console.log(err)
-        
+         process.exit(1);
     }
   
 }
