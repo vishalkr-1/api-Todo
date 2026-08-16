@@ -7,6 +7,11 @@ import cors from "cors";
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 dotenv.config();
 const app = express()
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
