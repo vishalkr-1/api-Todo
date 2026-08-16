@@ -9,18 +9,14 @@ dotenv.config();
 const app = express()
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["https://works-todo-game.netlify.app/","http://localhost:5173"],
   })
 );
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
 app.use(router)
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  })
-);
+
 const startServer = async () => {
   try {
     await connectDb(); // wait for Mongo to actually connect
