@@ -11,10 +11,16 @@ app.use(express.json());
 
 app.use(router)
 
+const startServer = async () => {
+  try {
+    await connectDb(); // wait for Mongo to actually connect
+    app.listen(process.env.PORT, '0.0.0.0', () => {
+      console.log(`server is running on ${process.env.PORT}`);
+    });
+  } catch (err) {
+    console.error('Failed to connect to DB, server not started:', err);
+    process.exit(1);
+  }
+};
 
-connectDb()
-
-
-app.listen(process.env.PORT, '0.0.0.0',() => {
-    console.log(`server is running on ${process.env.PORT}`)
-})
+startServer();
